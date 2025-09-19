@@ -251,8 +251,8 @@ GetHandshake() {
         fi
     done
 
-    wait 2>/dev/null          # reap zombie children
-    rm -f ./*.csv ./*.netxml  # airodump side-files
+    wait 2>/dev/null
+    rm -f ./handshakes/*.csv ./handshakes/*.netxml
 
     local FileName
     FileName=$(ls -t "$pcap_dir"/*.cap 2>/dev/null | head -n1)
