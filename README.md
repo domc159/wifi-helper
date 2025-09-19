@@ -94,7 +94,7 @@ For other Linux distributions, install the required packages using your package 
 | **c** | 🛠️ Restore Interface |
 | **p** | 📊 Show Processes Running Related to Wi-Fi Attacks |
 | **pp** | 📦 Install Required Packages |
-| **q** | ❌ Quit |
+| **ee** | ❌ Quit |
 
 ---
 
