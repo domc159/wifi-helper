@@ -2,14 +2,6 @@
 
 A bash menu-driven wrapper script designed to simplify the usage of several popular wireless network tools such as `airodump-ng`, `mdk4`, `aireplay-ng`, `reaver`, and `bully`. This toolkit provides an interactive CLI menu to perform wireless scanning, deauthentication attacks, beacon flooding, denial of service (DoS) attacks, EAPOL injection, WPA/WPA2 handshake capturing, and WPS attacks.
 
-```
-██████╗ ██╗██╗███████╗██╗ ██████╗ ██╗██████╗  █████╗ ████████╗███████╗
-██╔══██╗██║██║██╔════╝██║ ██╔══██╗██║██╔══██╗██╔══██╗╚══██╔══╝██╔════╝
-██║ ██╗ ██║██║█████╗  ██║ ███████║██║██████╔╝███████║   ██║   █████╗  
-██║███╗ ██║██║██╔══╝  ██║ ██╔══██║██║██╔══██╗██╔══██║   ██║   ██╔══╝  
-╚████╔████╔╝ ██║██║   ██║ ██║ ██║██║ ██║██║ ██║   ██║   ███████╗
- ╚═══╝╚═══╝  ╚═╝╚═╝   ╚═╝ ╚═╝ ╚═╝╚═╝ ╚═╝╚═╝ ╚═╝   ╚═╝   ╚══════╝
-```
 
 ---
 
