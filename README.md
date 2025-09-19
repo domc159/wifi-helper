@@ -41,7 +41,7 @@ The script can install required packages automatically on Debian-based systems (
 
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/domc159/wifi-helper.git
 cd wifi-toolkit
 ```
 
